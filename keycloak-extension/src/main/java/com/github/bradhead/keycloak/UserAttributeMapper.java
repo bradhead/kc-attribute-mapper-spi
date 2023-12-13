@@ -1,7 +1,7 @@
 /**
  * When creating user during token exchange federation, attributes should be updated (created in this case) as well
  */
-package org.bradhead.keycloak;
+package com.github.bradhead.keycloak;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,7 +27,13 @@ public class UserAttributeMapper extends org.keycloak.broker.oidc.mappers.UserAt
     @Override
     public void importNewUser(KeycloakSession session, RealmModel realm, UserModel user, IdentityProviderMapperModel mapperModel, BrokeredIdentityContext context) {
         super.importNewUser(session, realm, user, mapperModel, context);
-        Logger.getLogger(getClass().getName()).info("importNewUser called");
+        Logger.getLogger(getClass().getName()).info("org.bradhead.keycloak.UserAttributeMapper.importNewUser(...) called");
         this.updateBrokeredUser(session, realm, user, mapperModel, context);
+    }
+
+    @Override
+    public void preprocessFederatedIdentity(KeycloakSession session, RealmModel realm, IdentityProviderMapperModel mapperModel, BrokeredIdentityContext context) {
+        super.preprocessFederatedIdentity(session, realm, mapperModel, context);
+        Logger.getLogger(getClass().getName()).info("org.bradhead.keycloak.UserAttributeMapper.preprocessFederatedIdentity(...) called");
     }
 }
