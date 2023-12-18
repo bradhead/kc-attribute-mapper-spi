@@ -1,7 +1,6 @@
 package com.github.bradhead.keycloak.idp.auth;
 
 import org.keycloak.authentication.Authenticator;
-import org.keycloak.authentication.AuthenticatorFactory;
 import org.keycloak.authentication.authenticators.broker.IdpAutoLinkAuthenticatorFactory;
 import org.keycloak.models.KeycloakSession;
 
@@ -37,5 +36,10 @@ public class SmileIdpAutoLinkAuthenticatorFactory extends IdpAutoLinkAuthenticat
     @Override
     public String getHelpText() {
         return "Automatically set existing user to authentication context without any verification";
+    }
+
+    @Override
+    public int order() {
+        return 1;
     }
 }

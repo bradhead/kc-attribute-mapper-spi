@@ -5,11 +5,8 @@ import org.keycloak.authentication.AuthenticationFlowContext;
 import org.keycloak.authentication.authenticators.broker.IdpAutoLinkAuthenticator;
 import org.keycloak.authentication.authenticators.broker.util.SerializedBrokeredIdentityContext;
 import org.keycloak.broker.provider.BrokeredIdentityContext;
-import org.keycloak.models.FederatedIdentityModel;
-import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
 import org.keycloak.models.UserModel;
-import org.keycloak.sessions.AuthenticationSessionModel;
 
 public class SmileIdpAutoLinkAuthenticator extends IdpAutoLinkAuthenticator {
 
